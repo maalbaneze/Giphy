@@ -1,0 +1,29 @@
+body{
+	background: url("pexels-photo-242236.jpg");
+	background-size: 100%;
+    background-repeat: repeat;
+    color: black;
+}
+* {
+	box-sizing: border-box;
+}
+img { 
+    height: 150px;
+    width: 150px;
+}
+.btn {
+    /* adding spacing between each button*/
+    margin: 3px;
+    background-color: darkgreen;
+    border-color: #fff;
+}
+.gifDiv{
+    /* making the images go in one line rather than block & adding spacing between the images*/
+    float: left;
+    margin: 3px;
+}
+.container {
+	background-color: #fff;
+	opacity: 0.8;
+	padding: 20px;
+}
