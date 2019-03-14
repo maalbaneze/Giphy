@@ -45,44 +45,48 @@ $(document).ready(function () {
                             var p = $("p").text("Rating: " + gifRating);
                             gifDiv.append(gifRating);
                             gifDiv.append(p);
+                            console.log(gifRating);
+                            console.log(p);
                             // pulling gif
                             var gifImage = $("<img>");
+                            gifImage.addClass("image");
                             gifImage.attr("src", results[i].images.fixed_height_small_still.url); // still image stored into src of image
                             gifImage.attr("data-still", results[i].images.fixed_height_small_still.url); // still image
                             gifImage.attr("data-animate", results[i].images.fixed_height_small.url); // animated image
                             gifImage.attr("data-state", "still"); // set the image state
-                            gifImage.addClass("image");
                             gifDiv.append(gifImage);
+                            console.log(gifImage);
+                            $("#gifsView").prepend(gifDiv);
                             // pulling still image of gif
-                            // adding div of gifs to gifsView div
+                            // adding div of gifs to gifDiv div
                         }
                     }
                 });
-            //displayGifs();
             //function to add a button
-            function createButton() {
-                $("#add-gif").on("click", function () {
-                    var action = $("#action-input").val().trim();
-                    if (action === "") {
-                        return false; // added so user cannot add a blank button
-                    }
-                    actions.push(action);
-
-                    displayGifButtons();
-                    return false;
-                });
-            };
+            //function createButton() {
+            $("#add-gif").on("click", function (event) {
+                event.preventDefault();
+                var action = $("#action-input").val().trim();
+                if (action == "") {
+                    return false; // added so user cannot add a blank button
+                }
+                topics.push(action);
+                $("#action-input").val('');
+                displayGifButtons();
+                return false;
+            });
+            //};
             //function to remove buttons created
-            function removeButton() {
-                $("removeGif").on("click", function () {
-                    actions.pop(action);
-                    displayGifButtons();
-                    return false;
-                });
-            }
+            //function removeButton() {
+            $("removeGif").on("click", function () {
+                topics.pop(action);
+                displayGifButtons();
+                return false;
+            });
+            //};
             //call the create and remove buttons functions
-            createButton();
-            removeButton();
+            //createButton();
+            //removeButton();
         });
 
         $(document).on("click", ".gifs", function () {
@@ -97,5 +101,6 @@ $(document).ready(function () {
             }
         });
     };
+    //call the displayGifs function
     displayGifs();
 });

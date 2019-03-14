@@ -5,7 +5,7 @@ body{
     color: black;
 }
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 img { 
     height: 150px;
@@ -15,6 +15,11 @@ img {
     /* adding spacing between each button*/
     margin: 3px;
     background-color: darkgreen;
+    border-color: #fff;
+}
+#removeGif.btn {
+    margin: 3px;
+    background-color: darkred;
     border-color: #fff;
 }
 .gifDiv{
